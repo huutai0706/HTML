@@ -1,0 +1,120 @@
+/* Tổng thể */
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hidden { display: none !important; }
+
+/* Hộp mật khẩu */
+#password-container { text-align: center; z-index: 100; }
+.password-box { background: white; padding: 40px 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+.password-box h1 { font-family: 'Dancing Script', cursive; color: #333; font-size: 2em; margin-bottom: 20px; }
+#password-input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; box-sizing: border-box; }
+#submit-btn { padding: 12px 30px; border: none; background: linear-gradient(45deg, #ff9a9e, #fecfef); color: white; font-size: 1em; font-weight: bold; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+#submit-btn:hover { transform: scale(1.05); }
+#error-message { margin-top: 15px; color: red; }
+
+/* Thiệp sinh nhật và các hiệu ứng nền */
+#birthday-card {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    animation: fadeInBg 2s ease-in-out;
+}
+@keyframes fadeInBg { from { opacity: 0; } to { opacity: 1; } }
+
+#parallax-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.parallax-layer { position: absolute; top: 0; left: 0; width: 200%; height: 100%; background-repeat: repeat-x; }
+#layer-far { background-image: url('stars-bg.jpg'); background-size: cover; animation: pan-slow 90s linear infinite; }
+#layer-near { background-image: url('nebula-fg.png'); background-size: contain; opacity: 0.7; animation: pan-fast 50s linear infinite; }
+@keyframes pan-slow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes pan-fast { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.firework { position: absolute; width: 4px; height: 4px; background-color: white; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff69b4; opacity: 0; animation: firework-trail 2s cubic-bezier(0.5, 0, 0.5, 1) infinite; z-index: 2;}
+@keyframes firework-trail { 0% { transform: translateY(100vh) scale(0.5); opacity: 1; } 50% { opacity: 1; } 100% { transform: translateY(-20vh) scale(1.2); opacity: 0; } }
+#fw1 { left: 20%; animation-delay: 1s; } #fw2 { left: 80%; animation-delay: 2.5s; } #fw3 { left: 50%; animation-delay: 4s; }
+
+.bokeh { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%); filter: blur(3px); animation: bokeh-float 20s ease-in-out infinite alternate; opacity: 0; z-index: 3; }
+@keyframes bokeh-float { 50% { opacity: 0.8; transform: scale(1.2); } }
+.b1 { width: 150px; height: 150px; top: 20%; left: 10%; animation-delay: 0s; } .b2 { width: 100px; height: 100px; top: 70%; left: 80%; animation-delay: 5s; } .b3 { width: 200px; height: 200px; top: 50%; left: 50%; animation-delay: 10s; }
+
+/* Khối nội dung chính (Ảnh + Chữ) */
+#main-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Ảnh chân dung hình tròn */
+#character-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: revealContent 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1s;
+}
+
+#main-character {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy khung tròn */
+}
+
+/* Khối lời chúc */
+.content-wrapper {
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealContent 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.5s;
+}
+
+/* Hiệu ứng xuất hiện cho ảnh và chữ */
+@keyframes revealContent {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.content-wrapper h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    text-shadow: 0 0 15px #ff69b4, 0 0 30px #ff69b4;
+    margin: 0;
+}
+
+.content-wrapper h2 {
+    font-size: 1.5em;
+    margin: 5px 0 15px 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.content-wrapper .message {
+    font-size: 1.1em;
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto;
+}

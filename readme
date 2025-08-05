@@ -1,0 +1,8 @@
+🎓 Đề tài: Quản lý sinh viên (Student Management System)
+🧩 Yêu cầu chức năng:
+    1.Thêm sinh viên mới
+    2.Hiển thị danh sách sinh viên
+    3.Tìm kiếm sinh viên theo mã số sinh viên (MSSV)
+    4.Xoá sinh viên
+    5.Sắp xếp sinh viên theo điểm trung bình hoặc tên
+    6.Lưu và đọc dữ liệu từ file (tùy chọn nâng cao)

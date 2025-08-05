@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="password-container">
+        <div class="password-box">
+            <h1>Mật mã Tình Yêu</h1>
+            <input type="password" id="password-input" placeholder="Nhập điều bí mật...">
+            <button id="submit-btn">Mở Quà</button>
+            <p id="error-message" class="hidden">Sai rồi, thử lại mật mã khác xem!</p>
+        </div>
+    </div>
+
+    <div id="birthday-card" class="hidden">
+        <div id="parallax-container">
+            <div class="parallax-layer" id="layer-far"></div>
+            <div class="parallax-layer" id="layer-near"></div>
+        </div>
+        <div class="firework" id="fw1"></div>
+        <div class="firework" id="fw2"></div>
+        <div class="firework" id="fw3"></div>
+        <div class="bokeh b1"></div>
+        <div class="bokeh b2"></div>
+        <div class="bokeh b3"></div>
+
+        <div id="main-content">
+            <div id="character-container">
+                <img src="character.png" alt="Ảnh nhân vật chính" id="main-character">
+            </div>
+
+            <div class="content-wrapper">
+                <h1>Chúc Mừng Sinh Nhật</h1>
+                <h2>[Tên người nhận]</h2>
+                <p class="message">
+                    Thêm một tuổi mới không chỉ là thêm một con số, mà là thêm những trải nghiệm, thêm sự trưởng thành và thêm những kỷ niệm đáng giá. Chúc bạn một tuổi mới rực rỡ như ánh nắng, ngọt ngào như những đóa hoa và lấp lánh như ngàn vì sao trên trời.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
