@@ -88,7 +88,11 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    animation: fadeInBg 2s ease-in-out;
+    background-image: url('stars-bg.jpg'); /* Using the uploaded stars-bg.jpg directly */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    animation: fadeInBg 2s ease-in-out; /* Keep the fade-in animation for the card */
 }
 
 @keyframes fadeInBg {
@@ -96,48 +100,14 @@ body {
     to { opacity: 1; }
 }
 
-#parallax-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
+/* Removed parallax-container and its layers as background is now directly on #birthday-card */
+/* #parallax-container { ... } */
+/* .parallax-layer { ... } */
+/* #layer-far { ... } */
+/* #layer-near { ... } */
+/* @keyframes pan-slow { ... } */
+/* @keyframes pan-fast { ... } */
 
-.parallax-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background-repeat: repeat-x;
-}
-
-/* Updated background image for layer-far to use the uploaded stars-bg.jpg */
-#layer-far {
-    background-image: url('stars-bg.jpg'); /* Using the uploaded stars-bg.jpg */
-    background-size: cover;
-    animation: pan-slow 90s linear infinite;
-}
-
-#layer-near {
-    background-image: url('stars-bg.jpg');
-    /*background-image: url('https://placehold.co/1920x1080/000066/ffffff?text=Nebula'); */
-    background-size: contain;
-    opacity: 0.7;
-    animation: pan-fast 50s linear infinite;
-}
-
-@keyframes pan-slow {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-@keyframes pan-fast {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
 
 /* Firework animation */
 .firework {
