@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === "Enter") {
             checkPassword();
         }
+        
     });
 
     // === Xử lý sự kiện cho nút xem ảnh và quay lại ===
