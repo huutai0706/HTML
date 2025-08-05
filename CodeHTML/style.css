@@ -88,7 +88,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: url('stars-bg.jpg'); /* Using the uploaded stars-bg.jpg directly */
+    background-image: url('starst-bg.jpg'); /* Using the uploaded stars-bg.jpg directly */
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating */
