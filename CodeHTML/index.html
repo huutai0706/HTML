@@ -11,39 +11,96 @@
 </head>
 <body>
 
+    <!-- Container for password input -->
     <div id="password-container">
         <div class="password-box">
-            <h1>Mật mã Tình Yêu</h1>
+            <h1>Nhập PassWork đi bạn</h1>
             <input type="password" id="password-input" placeholder="Nhập điều bí mật...">
             <button id="submit-btn">Mở Quà</button>
             <p id="error-message" class="hidden">Sai rồi, thử lại mật mã khác xem!</p>
         </div>
     </div>
 
+    <!-- Birthday Card section -->
     <div id="birthday-card" class="hidden">
+        <!-- Parallax background layers -->
         <div id="parallax-container">
             <div class="parallax-layer" id="layer-far"></div>
             <div class="parallax-layer" id="layer-near"></div>
         </div>
+        <!-- Firework effects -->
         <div class="firework" id="fw1"></div>
         <div class="firework" id="fw2"></div>
         <div class="firework" id="fw3"></div>
+        <!-- Bokeh light effects -->
         <div class="bokeh b1"></div>
         <div class="bokeh b2"></div>
         <div class="bokeh b3"></div>
 
+        <!-- Main content of the birthday card -->
         <div id="main-content">
+            <!-- Character image container -->
             <div id="character-container">
                 <img src="character.png" alt="Ảnh nhân vật chính" id="main-character">
             </div>
 
+            <!-- Birthday message wrapper -->
             <div class="content-wrapper">
                 <h1>Chúc Mừng Sinh Nhật</h1>
-                <h2>[Tên người nhận]</h2>
+                <h2 id="recipient-name">[Tên người nhận]</h2>
                 <p class="message">
                     Thêm một tuổi mới không chỉ là thêm một con số, mà là thêm những trải nghiệm, thêm sự trưởng thành và thêm những kỷ niệm đáng giá. Chúc bạn một tuổi mới rực rỡ như ánh nắng, ngọt ngào như những đóa hoa và lấp lánh như ngàn vì sao trên trời.
                 </p>
+                <!-- Button to navigate to the new gallery page -->
+                <button id="view-gallery-btn" class="hidden">Xem Thêm Ảnh</button>
             </div>
+        </div>
+    </div>
+
+    <!-- New Gallery Page section -->
+    <div id="gallery-page" class="hidden">
+        <div class="gallery-content">
+            <h1>Những Khoảnh Khắc Đáng Yêu</h1>
+            <!-- Container for multiple images -->
+            <div class="image-grid-container" id="image-gallery-grid">
+                <!-- Add your images here. Each image should be inside a 'gallery-image-wrapper' div. -->
+                <!-- Example: -->
+                <!--
+                <div class="gallery-image-wrapper">
+                    <img src="path/to/your/image1.jpg" alt="Kỷ niệm 1" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="path/to/your/image2.png" alt="Kỷ niệm 2" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="path/to/your/image3.gif" alt="Kỷ niệm 3" class="gallery-image">
+                </div>
+                -->
+                <!-- Placeholder images. Replace these with your actual images. -->
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/FF69B4/FFFFFF?text=Anh+1" alt="Kỷ niệm 1" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/8A2BE2/FFFFFF?text=Anh+2" alt="Kỷ niệm 2" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/DA70D6/FFFFFF?text=Anh+3" alt="Kỷ niệm 3" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/FFD700/000000?text=Anh+4" alt="Kỷ niệm 4" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/ADFF2F/000000?text=Anh+5" alt="Kỷ niệm 5" class="gallery-image">
+                </div>
+                <div class="gallery-image-wrapper">
+                    <img src="https://placehold.co/300x300/40E0D0/000000?text=Anh+6" alt="Kỷ niệm 6" class="gallery-image">
+                </div>
+            </div>
+            <p class="gallery-message">
+                Đây là những khoảnh khắc mà chúng ta đã cùng nhau tạo nên, mỗi tấm ảnh là một kỷ niệm đáng giá.
+            </p>
+            <!-- Back button to return to the birthday card -->
+            <button id="back-to-card-btn">Quay Lại Thiệp</button>
         </div>
     </div>
 
