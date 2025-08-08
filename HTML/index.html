@@ -2,33 +2,60 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Bạn đã bị troll toàn tập!</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất ngờ nhé!</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #bb86fc;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        button {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            color: #121212;
+            background-color: #03dac6;
+            box-shadow: 0 5px 15px rgba(3, 218, 198, 0.4);
+        }
+    </style>
 </head>
 <body>
-    <img src="https://i.imgur.com/39h9pVL.png" id="fake-cursor" alt="fake cursor">
 
-    <div class="container">
-        <h1>Chúc mừng!</h1>
-        <p>Bạn đã tìm thấy trang web troll đỉnh cao. Chúc may mắn thoát ra nhé!</p>
-        
-        <button id="troll-button">Bấm vào tôi nếu dám!</button>
-        
-        <button id="fake-close-button" class="close-btn">Thử Đóng Tab</button>
-    </div>
+    <h1>Một phần quà bí mật</h1>
+    <p>Chỉ dành cho bạn. Hãy bấm nút bên dưới để nhận.</p>
+    <button onclick="startTroll()">Bấm để nhận quà!</button>
 
-    <div id="fake-error" class="fake-error-dialog" style="display: none;">
-        <div class="error-title-bar">
-            <span>Critical Error</span>
-            <button class="close-error-btn">X</button>
-        </div>
-        <div class="error-content">
-            <p>Error 0xDEADBEEF: Your system has been compromised by a good sense of humor.</p>
-            <button class="error-ok-btn">OK</button>
-        </div>
-    </div>
+    <script>
+        function startTroll() {
+            // Bước 1: Làm điện thoại rung lên (nếu được hỗ trợ)
+            if (navigator.vibrate) {
+                // Rung theo chuỗi: rung 0.5s, nghỉ 0.2s, rung 0.5s
+                navigator.vibrate([500, 200, 500]);
+            }
 
-    <script src="scripts.js"></script>
+            // Bước 2: Bắt đầu vòng lặp hộp thoại vô tận ngay sau đó
+            while (true) {
+                alert("Mắc bẫy rồi! Haha, không thoát được đâu!");
+            }
+        }
+    </script>
+
 </body>
 </html>
