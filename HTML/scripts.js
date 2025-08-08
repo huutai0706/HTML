@@ -1,50 +1,100 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ---- PHẦN CŨ VẪN GIỮ NGUYÊN ----
-    const trollMessage = "Bạn có chắc chắn muốn rời khỏi không? Nếu rời đi, bạn sẽ bỏ lỡ một điều bất ngờ lớn!";
 
+    // --- CÁC PHẦN TỬ GIAO DIỆN ---
+    const trollButton = document.getElementById('troll-button');
+    const fakeCloseButton = document.getElementById('fake-close-button');
+    const container = document.querySelector('.container');
+    const fakeCursor = document.getElementById('fake-cursor');
+    const fakeError = document.getElementById('fake-error');
+
+    // --- TROLL CHUNG CHO CẢ HAI NỀN TẢNG ---
+
+    // 1. Ngăn đóng tab dễ dàng
     window.addEventListener('beforeunload', (event) => {
         event.preventDefault();
-        event.returnValue = trollMessage;
-        return trollMessage;
+        event.returnValue = "Bạn có chắc muốn bỏ cuộc không?";
+        return "Bạn có chắc muốn bỏ cuộc không?";
     });
 
-    const trollButton = document.getElementById('troll-button');
-    trollButton.addEventListener('click', () => {
-        for (let i = 0; i < 5; i++) {
-            alert("Haha, bạn nghĩ bạn có thể thoát sao? Thử lại lần nữa đi!");
-        }
-    });
-
-    // ---- PHẦN LOGIC MỚI CHO NÚT ĐÓNG GIẢ ----
-    
-    // 🔒 Đặt mật khẩu của bạn ở đây
-    const correctPassword = "123"; 
-
-    const fakeCloseButton = document.getElementById('fake-close-button');
-
+    // 2. Nút đóng giả yêu cầu mật khẩu
     fakeCloseButton.addEventListener('click', () => {
-        // Hiển thị hộp thoại yêu cầu người dùng nhập văn bản
-        const userInput = prompt("Để đóng tab này, vui lòng nhập mật khẩu:");
-
-        // Kiểm tra xem người dùng có nhấn "Cancel" hay không
-        if (userInput === null) {
-            alert("Bạn đã hủy bỏ. Không thể đóng tab!");
-            return;
-        }
-
-        // Kiểm tra mật khẩu
+        const correctPassword = "123";
+        const userInput = prompt("Muốn thoát à? Nhập mật khẩu xem nào:");
         if (userInput === correctPassword) {
-            // ✅ Mật khẩu đúng
-            alert("Mật khẩu chính xác! Tab sẽ được đóng.");
-            
-            // Lệnh này cố gắng đóng tab. 
-            // Lưu ý: Nó chỉ hoạt động nếu trang được mở bằng một đoạn script khác (ví dụ: window.open()).
-            // Nếu người dùng tự mở tab, lệnh này có thể không hoạt động do chính sách của trình duyệt.
-            window.close();
-
+            alert("Đúng rồi! Nhưng tôi vẫn không cho bạn đi đâu. Haha!");
         } else {
-            // ❌ Mật khẩu sai
-            alert("Mật khẩu không chính xác! Hãy thử lại nếu dám.");
+            alert("Sai mật khẩu! Mắc bẫy rồi nhé!");
         }
     });
+
+
+    // --- HÀM KIỂM TRA THIẾT BỊ ---
+    function isMobile() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+
+    // --- LOGIC PHÂN CHIA THEO THIẾT BỊ ---
+
+    if (isMobile()) {
+        // ===================================
+        // === CÁC TRÒ TROLL CHO ĐIỆN THOẠI ===
+        // ===================================
+        
+        // Ẩn con trỏ giả trên điện thoại
+        if(fakeCursor) fakeCursor.style.display = 'none';
+
+        // 1. Troll Rung
+        trollButton.addEventListener('click', () => {
+            if (window.navigator && window.navigator.vibrate) {
+                navigator.vibrate([500, 200, 500, 200, 1000]);
+            }
+        });
+
+        // 2. Troll Màn hình lắc lư
+        window.addEventListener('deviceorientation', (event) => {
+            container.style.transform = `rotateX(${event.beta/2}deg) rotateY(${event.gamma/2}deg)`;
+        });
+
+        // 3. Troll Cuộn ngược
+        let lastY = 0;
+        document.body.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+        document.body.addEventListener('touchstart', (e) => { lastY = e.touches[0].clientY; }, { passive: false });
+        document.body.addEventListener('touchend', (e) => {
+            const currentY = e.changedTouches[0].clientY;
+            window.scrollBy(0, -(currentY - lastY));
+        });
+
+    } else {
+        // =================================
+        // === CÁC TRÒ TROLL CHO MÁY TÍNH ===
+        // =================================
+        
+        // 1. Troll Nút bỏ chạy
+        trollButton.addEventListener('mouseover', () => {
+            const newTop = Math.random() * (window.innerHeight - trollButton.offsetHeight);
+            const newLeft = Math.random() * (window.innerWidth - trollButton.offsetWidth);
+            trollButton.style.top = `${newTop}px`;
+            trollButton.style.left = `${newLeft}px`;
+        });
+        
+        // 2. Troll Con trỏ chuột giả
+        document.addEventListener('mousemove', (e) => {
+            fakeCursor.style.left = e.clientX + 'px';
+            fakeCursor.style.top = e.clientY + 'px';
+        });
+        
+        // 3. Troll Hộp thoại lỗi giả
+        // Kích hoạt khi bấm nút troll chính
+        trollButton.addEventListener('click', () => {
+            fakeError.style.display = 'block';
+        });
+        document.querySelector('.close-error-btn').addEventListener('click', () => {
+            fakeError.style.display = 'none';
+        });
+        document.querySelector('.error-ok-btn').addEventListener('click', () => {
+            alert('Bạn nghĩ bấm OK là xong à? Không đâu!');
+            fakeError.style.display = 'none';
+        });
+    }
 });

@@ -1,3 +1,4 @@
+/* --- CÀI ĐẶT CHUNG --- */
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -8,6 +9,8 @@ body {
     background-color: #333;
     color: #fff;
     text-align: center;
+    overflow: hidden; /* Ẩn thanh cuộn */
+    cursor: none; /* Ẩn con trỏ thật */
 }
 
 .container {
@@ -16,6 +19,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border: 2px solid #e74c3c;
+    transition: transform 0.1s ease-out; /* Hiệu ứng cho trò lắc lư */
 }
 
 h1 {
@@ -33,7 +37,7 @@ button {
     padding: 12px 25px;
     font-size: 1.1em;
     font-weight: bold;
-    cursor: pointer;
+    cursor: none; /* Ẩn con trỏ trên nút */
     background-color: #e74c3c;
     color: #fff;
     border: none;
@@ -45,12 +49,65 @@ button:hover {
     background-color: #c0392b;
 }
 
-/* STYLE MỚI: Dành cho nút đóng giả */
+/* --- CSS CHO CÁC TRÒ TROLL --- */
+
+/* 1. Nút bỏ chạy (Desktop) */
+#troll-button {
+    position: absolute; /* Quan trọng để nút di chuyển */
+}
+
+/* 2. Con trỏ chuột giả (Desktop) */
+#fake-cursor {
+    position: fixed;
+    pointer-events: none; /* Quan trọng để không che các phần tử khác */
+    z-index: 10000;
+}
+
+/* 3. Nút đóng giả */
 .close-btn {
-    background-color: #3498db; /* Màu khác để phân biệt */
+    background-color: #3498db;
     margin-left: 15px;
 }
 
 .close-btn:hover {
     background-color: #2980b9;
+}
+
+/* 4. Hộp thoại lỗi giả (Desktop) */
+.fake-error-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    font-family: 'Tahoma', sans-serif;
+    z-index: 9999;
+}
+.error-title-bar {
+    background-color: #005a9e;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+.close-error-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: 1px solid white;
+    padding: 0 5px;
+    margin: 0;
+    font-size: 14px;
+}
+.error-content {
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+.error-ok-btn {
+    margin-top: 15px;
+    padding: 5px 20px;
 }

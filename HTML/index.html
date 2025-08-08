@@ -2,18 +2,33 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bạn đã bị troll!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Bạn đã bị troll toàn tập!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <img src="https://i.imgur.com/39h9pVL.png" id="fake-cursor" alt="fake cursor">
+
     <div class="container">
-        <h1>Chúc mừng, bạn đã bị troll!</h1>
-        <p>Thật không may, bạn sẽ không thể thoát khỏi trang web này một cách dễ dàng.</p>
-        <button id="troll-button">Hãy thử thoát xem nào!</button>
+        <h1>Chúc mừng!</h1>
+        <p>Bạn đã tìm thấy trang web troll đỉnh cao. Chúc may mắn thoát ra nhé!</p>
+        
+        <button id="troll-button">Bấm vào tôi nếu dám!</button>
         
         <button id="fake-close-button" class="close-btn">Thử Đóng Tab</button>
     </div>
+
+    <div id="fake-error" class="fake-error-dialog" style="display: none;">
+        <div class="error-title-bar">
+            <span>Critical Error</span>
+            <button class="close-error-btn">X</button>
+        </div>
+        <div class="error-content">
+            <p>Error 0xDEADBEEF: Your system has been compromised by a good sense of humor.</p>
+            <button class="error-ok-btn">OK</button>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
