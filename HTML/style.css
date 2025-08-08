@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    padding: 40px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #e74c3c;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #e74c3c;
+}
+
+p {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* STYLE MỚI: Dành cho nút đóng giả */
+.close-btn {
+    background-color: #3498db; /* Màu khác để phân biệt */
+    margin-left: 15px;
+}
+
+.close-btn:hover {
+    background-color: #2980b9;
+}
